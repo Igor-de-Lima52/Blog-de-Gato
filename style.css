@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+:root{
+    font-size: 62.5%;
+    --color-white: hsl(0, 0%, 100%);
+    --color-blue-500: hsl(195, 46%, 40%);
+    --color-blue-900: hsl(195, 91%, 25%);
+    --color-black-200: hsl(240, 6%, 13%);
+    --color-black-300: hsl(240, 5%, 7%);
+}
+html, body, input{
+    font-family: "Mulish", sans-serif;
+}
+body{
+    font-size: 1.6rem;
+}
+#app{
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100vh;
+}
+.container{
+    width: min(112rem, 100%);
+    margin: 0 auto;
+}
+header{
+    background: var(--color-blue-900);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2.5rem;
+    padding: 1.6rem 1.1rem;
+}
+header form label{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+header form input{
+    font-weight: 500;
+    background: var(--color-blue-500);
+    width: 100%;
+    max-width: 16rem;
+    border: none;
+    border-radius: .4rem;
+    padding: 1.2rem;
+}
+header form input::placeholder{
+    font-weight: 500;
+    color: var(--color-white)
+}
+main{
+    overflow-y: scroll;
+}
+main .container img{
+    width: 100%;
+}
+main section, main aside{
+    margin: 3.4rem 2.2rem;
+}
+h1, h2, h3{
+    font-size: 2.4rem;
+    color: var(--color-black-200);
+}
+h1{
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+section .buttons{
+    margin: .8rem 0 3rem;
+}
+section .buttons button{
+    width: 4rem;
+    height: 4rem;
+    background: var(--color-blue-900);
+    padding: 1.2rem;
+    border: none;
+    border-radius: 50%;
+    transition: all 300ms;
+}
+section .buttons button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+section p{
+    font-size: 1.6rem;
+    color: var(--color-black-300);
+}
+section p:last-child{
+    margin-top: 3rem;
+}
+aside .articles .article{
+    margin-top: 3.2rem;
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+}
+aside .articles .article img{
+    width: 15rem;
+    height: 8.4rem;
+}
+img{
+    display: block;
+    transition: all 300ms;
+}
+img:hover{
+    scale: 1.02;
+}
+aside .articles .article .text{
+    height: 100%;
+}
+aside .articles .article p{
+    font-size: 1.2rem;
+}
+aside .articles .article h3{
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+footer{
+    font-weight: 500;
+    color: var(--color-white);
+    background: var(--color-blue-500);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 2.6rem 1.6rem;
+}
+@media(min-width: 700px){
+    header form{
+        width: 50rem;
+    }
+    header form input{
+        max-width: 100%;
+    }
+}
+@media(min-width: 1000px){
+    .container{
+        width: 100%;
+    }
+    header{
+        justify-content: space-around;
+        padding: 1.6rem 1.1rem;
+    }
+    header form{
+        width: 84rem;
+    }
+    main section, main aside{
+        margin: 0;
+    }
+    main{
+        padding: 4.4rem;
+    }
+    main .container{
+        display: grid;
+        grid-template-areas: "A A B"
+                             "C C B";
+        column-gap: 3.4rem;
+    }
+    main section .title{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 3rem 0;
+    }
+    main .container section .buttons, main section .title h1{
+        margin: 0;
+    }
+    main .container section{
+        width: 60rem;
+    }
+    main .container > img{
+        width: 60rem;
+        grid-area: A;
+        border-radius: 1rem;
+    }
+    section{
+        grid-area: C;
+    }
+    aside{
+        grid-area: B;
+        width: 30rem;
+    }
+    
+}
+@media(min-width: 1440px){
+    header{
+        padding: 1.6rem 11rem;
+    }
+    header form{
+        width: 100rem;
+    }
+    main{
+        padding: 4.4rem 11rem;
+    }
+    main .container section{
+        width: 80rem;
+    }
+    main .container > img{
+        width: 80rem;
+    }
+    section p{
+        font-size: 1.6rem;
+    }
+    aside{
+        width: 38rem;
+    }
+    aside .articles .article p{
+        font-size: 1.4rem;
+    }
+    aside .articles .article h3{
+        font-size: 1.8rem;
+    }
+}
+header{
+    animation: fromTop 600ms 100ms backwards;
+}
+main, aside{
+    animation: fromBottom 800ms 100ms backwards;
+}
+footer{
+    animation: fromBottom 600ms 100ms backwards;
+}
+
+@keyframes fromTop{
+    from{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+@keyframes fromBottom{
+    from{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
